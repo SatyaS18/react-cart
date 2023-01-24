@@ -9,7 +9,9 @@
 }
 
 @import "colors.scss";
+@import "header.scss";
 
 body {
   background-color: $primary;
+  color: $tertiary;
 }
