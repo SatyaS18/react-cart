@@ -8,6 +8,9 @@
   > main {
     padding: 2rem;
     overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
     > h1 {
       color: $tertiary;
       font: 100 2rem "Roboto", sans-serif;
