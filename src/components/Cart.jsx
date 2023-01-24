@@ -5,7 +5,13 @@ const Cart = () => {
   return (
     <div className="cart">
       <main>
-        <CartItem />
+        <CartItem
+          imgSrc="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFjYm9vayUyMHByb3xlbnwwfHwwfHw%3D&w=1000&q=80"
+          name={"Mac Book"}
+          price={232323}
+          qty={1}
+          id="asd"
+        />
       </main>
       <aside>
         <h2>Subtotal: ${2000}</h2>
