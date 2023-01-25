@@ -29,7 +29,7 @@ const Cart = () => {
   const deleteHandler = (id) => {
     dispatch({
       type: "deleteFromCart",
-      payload: { id },
+      payload: id,
     });
     dispatch({
       type: "calculatePrice",

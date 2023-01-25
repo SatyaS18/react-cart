@@ -1,7 +1,13 @@
 import { createReducer } from "@reduxjs/toolkit";
 
 export const cartReducer = createReducer(
-  { cartItems: [], subTotal: 0, shipping: 0, tax: 0, total: 0 },
+  {
+    cartItems: [],
+    subTotal: 0,
+    shipping: 0,
+    tax: 0,
+    total: 0,
+  },
   {
     addToCart: (state, action) => {
       const item = action.payload;
@@ -31,7 +37,7 @@ export const cartReducer = createReducer(
 
     calculatePrice: (state) => {
       let sum = 0;
-      state.cartItems.forEact((i) => (sum += i.price * i.quantity));
+      state.cartItems.forEach((i) => (sum += i.price * i.quantity));
       state.subTotal = sum;
       state.shipping = state.subTotal > 1000 ? 0 : 200;
       state.tax = +(state.subTotal * 0.18).toFixed();
