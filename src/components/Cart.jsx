@@ -1,20 +1,46 @@
 import React from "react";
 import { AiFillDelete } from "react-icons/ai";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  const increment = (id) => {
+    dispatch({
+      type: "addToCart",
+      payload: { id },
+    });
+  };
+  const decrement = (id) => {
+    dispatch({
+      type: "decrement",
+      payload: id,
+    });
+  };
+  const deleteHandler = (id) => {
+    dispatch({
+      type: "deleteFromCart",
+      payload: { id },
+    });
+  };
   return (
     <div className="cart">
       <main>
         {cartItems.length > 0 ? (
-          <CartItem
-            imgSrc="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFjYm9vayUyMHByb3xlbnwwfHwwfHw%3D&w=1000&q=80"
-            name={"Mac Book"}
-            price={232323}
-            qty={1}
-            id="asd"
-          />
+          cartItems.map((i) => (
+            <CartItem
+              imgSrc={i.imgSrc}
+              name={i.name}
+              price={i.price}
+              qty={i.quantity}
+              id={i.id}
+              key={i.id}
+              decrement={decrement}
+              increment={increment}
+              deleteHandler={deleteHandler}
+            />
+          ))
         ) : (
           <h1>Empty Cart</h1>
         )}
