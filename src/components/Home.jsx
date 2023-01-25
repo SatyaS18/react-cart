@@ -1,5 +1,6 @@
 import React from "react";
 import { toast } from "react-hot-toast";
+import { useDispatch } from "react-redux";
 import ProductCard from "./ProductCard.jsx";
 
 const Home = () => {
@@ -8,8 +9,9 @@ const Home = () => {
     { name: "mac shoes", price: 200, imgSrc: "srccd", id: "asdd" },
   ];
 
+  const dispatch = useDispatch();
   const addToCartHandler = (options) => {
-    console.log(options.price);
+    dispatch({ type: "addToCart", payload: options });
     toast.success("Added to cart");
   };
   return (
