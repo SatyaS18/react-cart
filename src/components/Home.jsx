@@ -12,13 +12,13 @@ const Home = () => {
   const productList = [
     {
       name: "mac book",
-      price: 12000,
+      price: 1200,
       imgSrc: img1,
       id: "itit",
     },
     {
       name: "mac shoes",
-      price: 2000,
+      price: 200,
       imgSrc: img2,
       id: "imit",
     },
